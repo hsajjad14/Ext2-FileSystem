@@ -1,0 +1,58 @@
+command to run server (in bin):
+./ext2kmfs ../img/twolevel.img
+
+command to enable debug (int util):
+./ext2umfs_enable_debug_mode
+
+command to run func (in util):
+./ext2umfs_mkdir /testingg
+
+command to run dump (in img):
+./ext2_dump emptydisk.img 
+
+
+copying :
+cp ../src/libext2fsal.so libext2fsal.so
+
+
+
+cp /student/cslec/369/assignments/A4-self-test/  .
+
+cd A4-self-test
+
+cp ../blah/out/  .
+
+cd out/bin
+
+cp ../../files/  .
+
+dos2unix ./solution-results/*
+dos2unix ./wrappers/*
+dos2unix ./autorun.sh
+
+sh autorun.sh
+
+
+
+tests:
+	cp:
+		./ext2umfs_cp ../src/oneblocktest.txt /
+		./ext2umfs_cp ../src/oneblocktest.txt /level1/level2/bfile
+		./ext2umfs_cp ../src/oneblocktest.txt /depth1//depth2//depth3//depth4/depth5
+		./ext2umfs_cp ../img/dog.txt /depth1//depth2//depth3//depth4/depth5/oneblocktest.txt
+	mkdir:
+		./ext2umfs_mkdir /depth1
+		./ext2umfs_mkdir /depth1//depth2
+		./ext2umfs_mkdir /depth1//depth2//depth3
+		./ext2umfs_mkdir /depth1//depth2//depth3//depth4
+		./ext2umfs_mkdir /depth1//depth2//depth3//depth4/depth5
+
+	rm:
+		./ext2umfs_rm /level1/level2/bfile
+		./ext2umfs_rm /bfilelink
+		
+	
+	hl:
+		./ext2umfs_ln_hl /level1/level2/bfile /bfilelink
+	
+		

@@ -1,0 +1,6 @@
+to run the server
+run make
+copry ext2 fsal file
+copy .o file when compiling
+run server which takes an image
+enable debug mode on the server
